@@ -1,0 +1,21 @@
+# tasks file for SecurityPatching
+# tasks file for my_role
+---
+- name: Install Apache on ec2
+  yum:
+    name: httpd
+    state: present
+- name: Start Apache on ec2
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+- name: Update package manager cache (yum)
+  yum:
+    name: '*'
+    state: latest
+
+- name: Apply security patches (yum)
+  yum:
+    name: '*'
+    state: latest

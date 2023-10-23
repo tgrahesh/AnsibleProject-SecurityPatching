@@ -1,0 +1,7 @@
+---
+- name: Apply Security Patches
+  hosts: all
+  become: yes  # Use elevated privileges
+  roles:
+    - SecurityPatching
+
